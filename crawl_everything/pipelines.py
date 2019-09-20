@@ -7,14 +7,21 @@
 
 import  pymysql
 import datetime;
-import sys;
-reload(sys);
-sys.setdefaultencoding("utf8")
+try:
+    import sys;
+    reload(sys);
+    sys.setdefaultencoding("utf8")
+except:
+    import importlib
+
+    importlib.reload(sys)
+
+
 
 class CrawlEverythingPipeline(object):
     def __init__(self):
         # 连接MySQL数据库
-        self.connect = pymysql.connect(host='localhost', user='root', password='root1234', db='crawl_everything', port=3307)
+        self.connect = pymysql.connect(host='localhost', user='root', password='root1234', db='crawl_everything', port=3306)
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):

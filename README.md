@@ -133,3 +133,6 @@ class CrawlEverythingPipeline(object):
 ![4.png](https://img.hacpai.com/file/2019/09/4-986667d6.png)
 
 在爬去一个
+微博实时热点：
+https://weibo.com/a/hot/realtime
+scrapy genspider weibo_spider weibo.com
