@@ -26,6 +26,9 @@ CREATE TABLE `article_info` (
   `jk_url` varchar(200) DEFAULT NULL COMMENT '文章url',
   `jk_status` varchar(50) DEFAULT '0' COMMENT '状态 0:禁用，1:正常',
   `jk_remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  `jk_create` datetime DEFAULT NULL COMMENT '创建时间',
+  `jk_date` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`article_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='文章相关';
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COMMENT='文章相关';
+
+

@@ -21,14 +21,15 @@ except:
 class CrawlEverythingPipeline(object):
     def __init__(self):
         # 连接MySQL数据库
-        self.connect = pymysql.connect(host='localhost', user='root', password='root1234', db='crawl_everything', port=3306)
+        self.connect = pymysql.connect(host='localhost', user='root', password='root1234',
+                                       db='crawl_everything', port=3307)
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
         # 往数据库里面写入数据
         self.cursor.execute(
-            'INSERT INTO crawl_everything.article_info( jk_source, jk_title, jk_url, jk_remark, jk_create) '
-            'VALUES("{}","{}","{}","{}","{}")'.format(item['jk_source'], item['jk_title'],item['jk_url'],item['jk_remark'],datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            'INSERT INTO crawl_everything.article_info( jk_source, jk_title, jk_url, jk_remark,jk_date, create_time) '
+            'VALUES("{}","{}","{}","{}","{}")'.format(item['jk_source'], item['jk_title'],item['jk_url'],item['jk_remark'],datetime.datetime.now().strftime("%Y-%m-%d"),datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         )
         self.connect.commit()
         return item
